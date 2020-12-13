@@ -9,6 +9,7 @@ public class playermovement : MonoBehaviour
     private Rigidbody2D myRigidBody;
     private Vector3 change;
     private SpriteRenderer sr;
+    public Animator animator;
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -17,6 +18,7 @@ public class playermovement : MonoBehaviour
 
     void Update()
     {
+        animator.SetFloat("speed", Mathf.Abs(change.x));
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
